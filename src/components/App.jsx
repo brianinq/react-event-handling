@@ -6,6 +6,11 @@ function App() {
     setHeadingText("Submitted");
   };
 
+  function handleChange(event) {
+    setHeadingText(`Hello ${event.target.value.toUpperCase()}`);
+    console.log(event.target.value);
+  }
+
   const [isMouseOver, setMouseOver] = useState(false);
   const mouseOver = () => {
     setMouseOver(true);
@@ -18,6 +23,7 @@ function App() {
     <div className="container">
       <h1>{headingText}</h1>
       <input
+        onChange={handleChange}
         style={{ color: "red" }}
         type="text"
         placeholder="What's your name?"
